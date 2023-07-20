@@ -3,6 +3,7 @@ WORKDIR /app
 COPY package*.json .
 RUN npm install
 COPY . .
+RUN npm run format:write
 RUN npm run build
 
 FROM nginx:1.19

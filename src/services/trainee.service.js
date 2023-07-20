@@ -1,32 +1,37 @@
 import http from "../http-common";
-
 class TraineeDataService {
   getAll() {
-    return http.get("/trainees");
+    return http.get("/trainee-details/trainees");
   }
 
   get(id) {
-    return http.get(`/trainees/${id}`);
+    return http.get(`/trainee-details/trainees/${id}`);
+  }
+
+  getSingleTrainee(identifier, identifyingNumber) {
+    return http.get(
+      `/trainee-details/trainees/identification?typeOfIdentification=${identifier}&identificationDocumentNumber=${identifyingNumber}`
+    );
   }
 
   create(data) {
-    return http.post("/trainees", data);
+    return http.post("/trainee-details/trainees", data);
   }
 
   update(id, data) {
-    return http.put(`/trainees/${id}`, data);
+    return http.put(`/trainee-details/trainees/${id}`, data);
   }
 
   delete(id) {
-    return http.delete(`/trainees/${id}`);
+    return http.delete(`/trainee-details/trainees/${id}`);
   }
 
   deleteAll() {
-    return http.delete(`/trainees`);
+    return http.delete(`/trainee-details/trainees`);
   }
 
   findByfirstName(title) {
-    return http.get(`/trainees?firstName=${title}`);
+    return http.get(`/trainee-details/trainees?firstName=${title}`);
   }
 }
 
